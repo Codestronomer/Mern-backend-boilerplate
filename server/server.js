@@ -1,0 +1,22 @@
+import config from './../config/config'
+import app from './express'
+import mongoose from 'mongoose'
+
+// Connection URL
+// Connection URL
+mongoose.Promise = global.Promise
+try {
+    mongoose.connect(config.mongoUri)//, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+} catch (error) {
+    console.log(error)
+}
+mongoose.connection.on('error', () => {
+    console.log(`unable to connect to database: ${config.mongoUri}`)
+})
+
+app.listen(config.port, (err) => {
+    if (err) {
+        console.log(err)
+    }
+    console.info(`Server started on port ${config.port}`)
+})

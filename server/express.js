@@ -5,7 +5,7 @@ import compress from 'compression';
 import cors from 'cors';
 import helmet from 'helmet';
 import config from './../config/config'
-import mongoose from 'mongoose'
+import Template from './../template'
 
 // configure express
 const app = express();
@@ -17,22 +17,10 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(cors());
 
-app.listen(config.port, (err) => {
-    if (err) {
-        console.log(err);
-    };
-    console.info(`Server started on port ${config.port}`);
-});
 
-mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
+app.get('/', async (req, res) => {
+    res.status(200).send(Template())
 })
 
-mongoose.connection.on('error', () => {
-    throw new Error(`Unable to connect to database ${config.mongoUri}`)
-})
 
 export default app
