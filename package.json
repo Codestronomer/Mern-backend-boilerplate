@@ -1,0 +1,17 @@
+{
+  "name": "mern-boilerplate",
+  "version": "1.0.0",
+  "description": "boilerplate for a mern application",
+  "main": "index.js",
+  "repository": "https://github.com/Codestronomer/Mern-backend-boilerplate.git",
+  "author": "Codemaniac6 <56360107+Codemaniac6@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
