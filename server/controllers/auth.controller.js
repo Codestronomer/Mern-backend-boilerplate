@@ -4,7 +4,7 @@ import expressJwt from 'express-jwt'
 import config from './../../config/config'
 
 
-const signin = (req, res) {
+const signin = async (req, res) => {
     try {
         let user = await User.findOne({ "email": req.body.email })
         if (!user) {
@@ -31,7 +31,7 @@ const signin = (req, res) {
     }
 };
 
-const signout = (req, res) {
+const signout = (req, res) => {
     res.clearCookie("t")
     return res.status('200').json({
         message: "signed out"
@@ -40,7 +40,8 @@ const signout = (req, res) {
 
 const requireSignin = expressJwt({
     secret: config.jwtSecret,
-    userProperty: 'auth'
+    userProperty: 'auth',
+    algorithms: ['sha1', 'RS256', 'HS256']
 });
 
 const hasAuthorization = (req, res) => {

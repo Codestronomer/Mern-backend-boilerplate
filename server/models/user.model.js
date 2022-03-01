@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import crypto from 'crypto'
+import config from './../../config/config'
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -45,7 +46,7 @@ UserSchema.methods = {
     encryptPassword: function (password) {
         if (!password) return ''
         try {
-            return crypto.createHmac('sha1', this.salt).update(password)
+            return crypto.createHmac(config.algorithm, this.salt).update(password)
                 .digest('hex')
         } catch (err) {
             return ''
