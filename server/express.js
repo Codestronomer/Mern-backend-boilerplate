@@ -6,7 +6,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import config from './../config/config'
 import Template from './../template'
-
+import userRoutes from './routes/user.routes'
 // configure express
 const app = express();
 
@@ -17,10 +17,14 @@ app.use(cookieParser());
 app.use(helmet());
 app.use(cors());
 
+// Routes
+app.use('/', userRoutes)
+
 
 app.get('/', async (req, res) => {
     res.status(200).send(Template())
 })
+
 
 
 export default app
