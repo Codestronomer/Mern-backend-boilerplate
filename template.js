@@ -4,10 +4,13 @@ export default () => {
     <html lang="en">
         <head>
             <meta charset="UTF-8">
-            <title>MERN boilerplate</title>
+            <meta name="viewport" content="initial-scale=1, width=device-width" />
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>        
         </head>
         <body>
-            <div id="root">Hello world</div>
+            <div id="root"></div>
+            <script type="text/javascript" src="/dist/bundle.js"></script>
         </body>
     </html>
     `

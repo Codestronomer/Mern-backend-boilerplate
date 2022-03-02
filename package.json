@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "boilerplate for a mern application",
   "main": "index.js",
-  "repository": "https://github.com/Codestronomer/Mern-backend-boilerplate.git",
+  "repository": "https://github.com/Codestronomer/Mern-application-boilerplate.git",
   "author": "Codemaniac6 <56360107+Codemaniac6@users.noreply.github.com>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
     "babel-loader": "^8.2.3",
     "webpack": "^5.69.1",
     "webpack-cli": "^4.9.2",
@@ -18,6 +19,14 @@
     "development": "nodemon"
   },
   "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@hot-loader/react-dom": "^17.0.2",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@mui/icons-material": "^5.4.4",
+    "@mui/material": "^5.4.4",
+    "@mui/styles": "^5.4.4",
     "body-parser": "^1.19.2",
     "compression": "^1.7.4",
     "cookie-parser": "^1.4.6",
@@ -27,6 +36,11 @@
     "helmet": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "mongoose": "^6.2.3"
+    "mongoose": "^6.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-hot-loader": "^4.13.0",
+    "react-router": "^6.2.2",
+    "react-router-dom": "^6.2.2"
   }
 }
