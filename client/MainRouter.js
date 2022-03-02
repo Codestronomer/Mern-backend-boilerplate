@@ -1,13 +1,15 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import Home from './core/Home'
 
 const MainRouter = () => {
     return (
         <div>
-            <Switch>
-                <Route exact path="/" component={Home} />
-            </Switch>
+            <Routes>
+                <Route exact path="/" element={<Home />}>
+                    {/* <Home /> */}
+                </Route>
+            </Routes>
         </div>
     )
 }

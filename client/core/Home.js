@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles } from '@mui/material'
+import { makeStyles } from '@mui/styles'
 import Card from '@mui/material/Card'
 import { CardContent } from '@mui/material'
 import { CardMedia } from '@mui/material'
@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     },
 
     title: {
-        padding: `${theme.spacing(3)}px ${theme.spacing(2.5)}px ${theme.spacing(2)}px`,
+        padding: `${theme.spacing(3)}px ${theme.spacing(3)}px ${theme.spacing(3)}px ${theme.spacing(3)}px`,
         color: theme.palette.openTitle
     },
     media: {
@@ -26,7 +26,7 @@ export default function Home() {
     const classes = useStyles()
     return (
         <Card className={classes.card}>
-            <Typography variant="h6" className={classses.title}>
+            <Typography variant="h6" className={classes.title}>
                 Home Page
             </Typography>
             <CardMedia className={classes.media} image={bicyleImage} title="Bicycle" />
