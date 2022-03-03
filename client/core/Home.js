@@ -46,6 +46,7 @@ export default function Home() {
                 </Typography>
                 <Link to="/users">Users</Link>
                 <Link to="/signup">Signup</Link>
+                <Link to="/signin">Signin</Link>
             </CardContent>
         </Card>
     )
