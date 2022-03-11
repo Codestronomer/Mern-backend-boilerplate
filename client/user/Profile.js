@@ -14,7 +14,7 @@ import { Typography } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { Person } from '@mui/icons-material';
 import { Divider } from '@mui/material';
-import { Redirect, Link } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import DeleteUser from './DeleteUser';
 
 
@@ -58,7 +58,7 @@ export default function Profile({ match }) {
         }
     }, [match.params.userId])
     if (redirectToSignin) {
-        return <Redirect to="/signin" />
+        return <Navigate to="/signin" />
     }
 
     return (
