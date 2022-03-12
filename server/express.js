@@ -14,6 +14,7 @@ import devBundle from './devBundle'
 //  modules for server side rendering
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom/server'
 import MainRouter from './../client/MainRouter';
 import { CacheProvider, ThemeProvider } from '@mui/material/styles';
 import createEmotionServer from '@emotion/server/create-instance';
@@ -22,47 +23,6 @@ import theme from './../client/theme';
 import { CssBaseline } from '@mui/material';
 import App from './../client/App'
 
-function renderFullPage(html, css) {
-    return `
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <title>My page</title>
-        ${css}
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-      </head>
-      <body>
-        <script async src="build/bundle.js"></script>
-        <div id="root">${html}</div>
-      </body>
-    </html>
-  `;
-}
-
-function handleRender(req, res) {
-    const cache = createEmotionCache();
-    const { extractCriticalToChunks, constructStyleTagsFromChunks } = createEmotionServer(cache);
-
-    // Render the component to a string.
-    const html = ReactDOMServer.renderToString(
-        <CacheProvider value={cache}>
-            <ThemeProvider theme={theme}>
-                {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-                <CssBaseline />
-                <App />
-            </ThemeProvider>
-        </CacheProvider>,
-    );
-
-
-    // Grab the CSS from emotion
-    const emotionChunks = extractCriticalToChunks(html);
-    const emotionCss = constructStyleTagsFromChunks(emotionChunks);
-
-    // Send the rendered page back to the client.
-    res.send(renderFullPage(html, emotionCss));
-}
 
 const CURRENT_WORKING_DIR = process.cwd();
 
@@ -77,7 +37,7 @@ devBundle.compile(app);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ 'extended': true }));
 app.use(cookieParser());
-app.use(compress())
+app.use(compress());
 // Secure apps by setting various HTTP headers
 app.use(helmet());
 // Enable CORS - Cross Origin Resouse Sharing
@@ -93,11 +53,6 @@ app.use('/', authRoutes);
 app.get('/', (req, res) => {
     res.send(Template())
 })
-
-
-// for client side 
-// app.use(handleRender);
-
 // Catch unauthorized errors
 app.use((err, req, res, next) => {
     if (err.name === "UnauthorizedError") {
