@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import auth from './../auth/auth-helper'
 import { remove } from './api-user'
 import { Navigate } from 'react-router-dom'
-import { Button, DialogContent, DialogContentText, DialogTitle, IconButton } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 
 
 
-export default function DeleteUser(props) {
+export default function DeleteUser({ userId }) {
     const [open, setOpen] = useState(false)
     const [redirect, setRedirect] = useState(false)
 
@@ -22,7 +22,7 @@ export default function DeleteUser(props) {
 
     const deleteAccount = () => {
         remove({
-            userId: props.userId
+            userId: userId
         }, { t: jwt.token }).then((data) => {
             if (data && data.error) {
                 console.log(data.error)

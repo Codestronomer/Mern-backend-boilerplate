@@ -44,9 +44,6 @@ export default function Home() {
                 <Typography variant="body2" component="p">
                     Welcome to the MERN boilerplate home page.
                 </Typography>
-                <Link to="/users">Users</Link>
-                <Link to="/signup">Signup</Link>
-                <Link to="/signin">Signin</Link>
             </CardContent>
         </Card>
     )

@@ -14,7 +14,7 @@ import { Typography } from '@mui/material';
 import { Edit } from '@mui/icons-material';
 import { Person } from '@mui/icons-material';
 import { Divider } from '@mui/material';
-import { Navigate, Link } from 'react-router-dom'
+import { Navigate, Link, useParams } from 'react-router-dom'
 import DeleteUser from './DeleteUser';
 
 
@@ -33,18 +33,21 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Profile({ match }) {
+export default function Profile() {
+    const { userId } = useParams()
+
     const classes = useStyles();
+
     const [user, setUser] = useState({})
     const [redirectToSignin, setRedirectToSignin] = useState(false);
+    const jwt = auth.isAuthenticated()
 
     useEffect(() => {
         const abortController = new AbortController();
         const signal = abortController.signal
-        const jwt = auth.isAuthenticated()
 
         read({
-            userId: match.params.userId
+            userId: userId
         }, { t: jwt.token }, signal).then((data) => {
             if (data && data.error) {
                 setRedirectToSignin(true)
@@ -56,7 +59,7 @@ export default function Profile({ match }) {
         return function cleanup() {
             abortController.abort()
         }
-    }, [match.params.userId])
+    }, [userId])
     if (redirectToSignin) {
         return <Navigate to="/signin" />
     }
@@ -74,8 +77,9 @@ export default function Profile({ match }) {
                         </Avatar>
                     </ListItemAvatar>
                     <ListItemText primary={user.name} secondary={user.email} />
+
                     {
-                        auth.isAuthenticated().user && auth.isAuthenticated().user._Id == user._id &&
+                        auth.isAuthenticated().user && auth.isAuthenticated().user._id == user._id &&
                         (
                             <ListItemSecondaryAction>
                                 <Link to={`/user/edit/${user._id}`}>

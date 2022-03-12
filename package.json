@@ -20,7 +20,8 @@
     "development": "nodemon"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.1",
+    "@emotion/react": "^11.8.2",
+    "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.8.1",
     "@hot-loader/react-dom": "^17.0.2",
     "@mui/icons-material": "^5.4.4",
