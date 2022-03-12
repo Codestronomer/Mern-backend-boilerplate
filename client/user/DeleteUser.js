@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import auth from './../auth/auth-helper'
 import { remove } from './api-user'
 import { Navigate } from 'react-router-dom'

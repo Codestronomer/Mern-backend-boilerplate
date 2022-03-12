@@ -1,4 +1,4 @@
-import { read } from 'api-user.js';
+import { read } from './api-user.js';
 import React, { useState, useEffect } from 'react';
 import auth from './../auth/auth-helper';
 import { makeStyles } from '@mui/styles';

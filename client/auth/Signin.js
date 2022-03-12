@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signin } from './api-auth';
-import { auth } from './auth-helper';
+import auth from './auth-helper';
 import { Navigate } from 'react-router-dom'
 import { useLocation } from 'react-router';
 import { makeStyles } from '@mui/styles';
