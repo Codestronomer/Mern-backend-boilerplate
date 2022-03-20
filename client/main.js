@@ -1,17 +1,14 @@
 import React from 'react'
 import { hydrate, render } from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import createEmotionCache from './../server/createEmotionCache'
 
-// const cache = createEmotionCache();
+const renderMethod = module.hot ? render : hydrate;
 
-// function Main() {
-//     return (
-//         <CacheProvider value={cache}>
-//             <CssBaseline />
-//             <App />
-//         </CacheProvider>
-//     );
-// }
-
-render(<App />, document.getElementById('root'))
+renderMethod(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.getElementById('root')
+)

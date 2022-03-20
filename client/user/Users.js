@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
         margin: `${theme.spacing(4)}px ${theme.spacing(2)}px`,
-        color: theme.palette.openTitle
+        color: theme.palette.openTitle,
+        padding: theme.spacing(2)
     }
 }))
 
@@ -56,7 +57,7 @@ export default function Users() {
             </Typography>
             <List dense>
                 {users.map((item, i) => {
-                    return <Link to={`/user/${item._id}`} key={i}>
+                    return <Link to={`/user/${item._id}`} key={i} style={{ textDecoration: 'none' }}>
                         <ListItem button>
                             <ListItemAvatar>
                                 <Avatar>

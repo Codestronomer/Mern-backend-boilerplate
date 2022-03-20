@@ -3,6 +3,7 @@ const path = require('path')
 const webpack = require('webpack')
 const CURRENT_WORKING_DIR = process.cwd()
 
+
 const config = {
     name: "browser",
     mode: "development",
@@ -35,7 +36,7 @@ const config = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.SourceMapDevToolPlugin()
+        new webpack.SourceMapDevToolPlugin(),
     ],
     resolve: {
         alias: {

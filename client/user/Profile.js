@@ -29,7 +29,9 @@ const useStyles = makeStyles(theme => ({
 
     title: {
         marginTop: theme.spacing(3),
-        color: theme.palette.protectedTitle
+        color: theme.palette.protectedTitle,
+        paddingLeft: theme.spacing(2),
+        paddingTop: theme.spacing(2)
     }
 }))
 
@@ -82,7 +84,7 @@ export default function Profile() {
                         auth.isAuthenticated().user && auth.isAuthenticated().user._id == user._id &&
                         (
                             <ListItemSecondaryAction>
-                                <Link to={`/user/edit/${user._id}`}>
+                                <Link to={`/user/edit/${user._id}`} style={{ textDecoration: 'none' }}>
                                     <IconButton aria-label="Edit" color="primary">
                                         <Edit />
                                     </IconButton>

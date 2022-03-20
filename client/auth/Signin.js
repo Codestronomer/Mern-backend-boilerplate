@@ -4,7 +4,7 @@ import auth from './auth-helper';
 import { Navigate } from 'react-router-dom'
 import { useLocation } from 'react-router';
 import { makeStyles } from '@mui/styles';
-import { Button, Card, CardActions, CardContent, TextField, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Icon, TextField, Typography } from '@mui/material';
 
 
 const useStyles = makeStyles(theme => ({
@@ -82,7 +82,7 @@ export default function Signin(props) {
         <div>
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography variat="h6" className={classes.title}>
+                    <Typography variant="h5" className={classes.title}>
                         Sign In
                     </Typography>
                     <TextField id="email" label="Email"
@@ -93,19 +93,26 @@ export default function Signin(props) {
                     <br />
                     <TextField id="password"
                         label="password"
+                        type="password"
                         className={classes.textField}
                         value={values.password}
                         onChange={handleChange('password')}
                         margin="normal"
                     />
                     <br />
+                    {
+                        values.error && (<Typography color="error" component='p'>
+                            <Icon className={classes.error} color="error">error</Icon>
+                            {values.error}
+                        </Typography>)
+                    }
                 </CardContent>
                 <CardActions>
                     <Button color="primary"
                         variant="contained"
                         onClick={clickSubmit}
                         className={classes.submit}>
-                        Submit
+                        Sign In
                     </Button>
                 </CardActions>
             </Card>

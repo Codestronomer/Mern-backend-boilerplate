@@ -87,7 +87,7 @@ export default function Signup() {
                     }
                 </CardContent>
                 <CardActions>
-                    <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>Submit</Button>
+                    <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>Signup</Button>
                 </CardActions>
             </Card>
             <Dialog open={values.open} onClick={(event, reason) => {
@@ -105,7 +105,7 @@ export default function Signup() {
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Link to="/signin">
+                    <Link to="/signin" style={{ textDecoration: 'none' }}>
                         <Button color="primary" autoFocus="autoFocus" variant="contained">
                             Sign In
                         </Button>

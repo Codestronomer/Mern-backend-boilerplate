@@ -1,4 +1,4 @@
-export default () => {
+export default ({ html }) => {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -9,7 +9,7 @@ export default () => {
             <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>        
         </head>
         <body>
-            <div id="root"></div>
+            <div id="root">${html}</div>
             <script type="text/javascript" src="/dist/bundle.js"></script>
         </body>
     </html>
