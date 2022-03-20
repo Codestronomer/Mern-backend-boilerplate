@@ -1,5 +1,5 @@
-# Mern-backend-boilerplate
-Backend boilerplate code for a MERN application with basic user Auth and CRUD features.
+# Mern-boilerplate
+Boilerplate code for a MERN application with basic user Auth and CRUD features.
 
 ### What you need to run this code
 - Node (13.12.0)
